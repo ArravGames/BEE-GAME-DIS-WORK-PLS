@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+/*
+1-> Download Standard Asstes
+2-> then switch to Mobile from build setting
+3-> Enable the mobile input, you will find it on the top (it aitomaticallly enable but check it)
+4->go to project settings>inputMannager create the new button and assign any key,it will responsible for speed up
+5-> create the button then add the Button hnadler script to it you will find this script in Standardassets > crossplatfoeminput
+6->type then name of the button which is responsible for speed up
+*/
+
 public class PlayerMovement : MonoBehaviour
 {
 
