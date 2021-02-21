@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class PlayerMovement : MonoBehaviour
     float _z;
     float z;
     float __z;
+    
+    public float new_speed = 20f;
+    public float old_speed = 10f;
+    
+    bool isFlying = false;
+    
+    public float flyTime = 10f;
+    
     void Update()
     {
 
@@ -46,11 +55,26 @@ public class PlayerMovement : MonoBehaviour
         {
             _animator.SetBool("Moving", false);
         }
+        
+        
+        if(CrossPlatformInputManager.GetButtonDown("FlyButton")&&isFlying == false)
+        {
+              StartCoroutine(flyfunction());
+        }
+        
     }
     void FixedUpdate()
     {
         rb.rotation = _z;//also here you can do this+ 90 or -90 or -_z
 
     }
+    IEnumerator flyfunction()
+    {
+        isFlying = true;
+        Speed = new_speed;
+        yield return new WaitForSeconds(flyTime);
+        Speed = old_speed;
+        isFlying = false;
+    {
 
 }
